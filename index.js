@@ -82,3 +82,30 @@ function isValidString(){
 		document.getElementById("validStringResult").innerHTML = "The string, " + str + ", is not valid in alphabet, " + alphabet + ": " + false;
 	}
 }
+
+function getSkew(){
+	/*
+	Given a genome str of some length q (where q>0), it returns the number of 
+	Gs minus the number of Cs in the first nucleotides (q>=n). The value can 
+	be zero, negative or positive. The first position is one (1) not zero (0) 
+	as we typically associate with string implementations.
+	*/
+	// Get text field values and assign to str and n.
+	var str = document.getElementById("getSkew1").value;
+	var n = document.getElementById("getSkew2").value;
+	// Initialize gCount, cCount and skew to 0.
+	var gCount = 0;
+	var cCount = 0;
+	var skew = 0;
+
+	// Starting from index 1(0) up to index n, count the number Gs and Cs, and subtract cCount from gCount to get the skew.
+	for(var i=1; i<=n; i++){
+		if(str.charAt(i-1) == "G"){
+			gCount++;
+		} else if(str.charAt(i-1) == "C"){
+			cCount++;
+		}
+	}
+	skew = gCount - cCount;
+	document.getElementById("getSkewResult").innerHTML = "Skew: " + skew;
+}
