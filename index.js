@@ -1,3 +1,9 @@
+/*
+Carrasco, Angelica Grace A.
+2013-47726
+cmsc128-ay2015-16-assign002-js
+*/
+
 function getHammingDistance(){
 	/* 
 	Given two strings str1 and str2 of same length (length must never be 0 
@@ -19,6 +25,7 @@ function getHammingDistance(){
 	if(str1.length != str2.length){
 		// Both strings should have the same length.
 		document.getElementById("hammingDistanceResult").innerHTML = "Error! Strings are not equal!";
+		console.log("Error! Strings are not equal!");
 	} else {
 		// Traverse each character of both strings and increment hammingDistance when the characters differ.
 		for(var i=0; i<str1.length; i++){
@@ -28,6 +35,7 @@ function getHammingDistance(){
 		}
 		// Display result.
 		document.getElementById("hammingDistanceResult").innerHTML = "The Hamming Distance of " + str1 + " and " + str2 + " is " + hammingDistance;
+		console.log("Hamming Distance " + hammingDistance);
 	}
 }
 
@@ -36,6 +44,7 @@ function countSubstrPattern(){
 	Given a string original and pattern, we will count the number of occurrence 
 	of pattern in original.
 	*/
+	
 	// Get text field values and assign to original and pattern.
 	var original = document.getElementById("substrPatt1").value;
 	var pattern = document.getElementById("substrPatt2").value;
@@ -47,6 +56,8 @@ function countSubstrPattern(){
 
 	if(pattern.length > original.length){
 		// If pattern.length is greater than original.length, return 0.
+		document.getElementById("substrPatternResult").innerHTML = "Pattern length is greater than original length: 0";
+		console.log("substrPatternCount: " + substrPatternCount);
 		substrPatternCount = 0;
 	} else {
 		// Starting from the 0th index, check if the pattern is equal to the substring of original from ith index up to pattern.length-characters. And increment substrPatternCount when equal.
@@ -57,6 +68,7 @@ function countSubstrPattern(){
 		}
 	}
 	document.getElementById("substrPatternResult").innerHTML = "The number of occurrences of pattern, " + pattern + ", in original, " + original + " is " + substrPatternCount;
+	console.log("Substr Pattern Count: " + substrPatternCount);
 }
 
 function isValidString(){
@@ -77,9 +89,11 @@ function isValidString(){
 	if(mismatch == null){
 		// If mismatch is null, then the string is valid, since there are no matches for negated character set.
 		document.getElementById("validStringResult").innerHTML = "The string, " + str + ", is valid in alphabet, " + alphabet + ": " + true;
+		console.log("isValidString: " + true);
 	} else {
 		// Otherwise, the string is invalid.
 		document.getElementById("validStringResult").innerHTML = "The string, " + str + ", is not valid in alphabet, " + alphabet + ": " + false;
+		console.log("Is String Valid: " + false);
 	}
 }
 
@@ -90,6 +104,7 @@ function getSkew(){
 	be zero, negative or positive. The first position is one (1) not zero (0) 
 	as we typically associate with string implementations.
 	*/
+
 	// Get text field values and assign to str and n.
 	var str = document.getElementById("getSkew1").value;
 	var n = document.getElementById("getSkew2").value;
@@ -101,9 +116,11 @@ function getSkew(){
 	if(n>str.length){
 		// n must not be greater than str.length.
 		document.getElementById("getSkewResult").innerHTML = "Error! N is greater than length of string!";
+		console.log("Error! N is greater than length of string!");
 	} else if(n<1){
 		// n must not be a negative or zero (0).
 		document.getElementById("getSkewResult").innerHTML = "Error! N should not be a negative or zero (0)";
+		console.log("Error! N should not be a negative or zero (0)");
 	} else {
 		// Starting from index 1(0) up to index n, count the number Gs and Cs, and subtract cCount from gCount to get the skew.
 		for(var i=1; i<=n; i++){
@@ -115,6 +132,7 @@ function getSkew(){
 		}
 		skew = gCount - cCount;
 		document.getElementById("getSkewResult").innerHTML = "Skew: " + skew;
+		console.log("Skew: " + skew);
 	}
 }
 
@@ -135,10 +153,12 @@ function getMaxSkewN(){
 
 	if(n>str.length){
 		// n must not be greater than str.length.
-		document.getElementById("getMaxSkewResult").innerHTML = "Error! N is greater than length of string!";
+		document.getElementById("getSkewResult").innerHTML = "Error! N is greater than length of string!";
+		console.log("Error! N is greater than length of string!");
 	} else if(n<1){
 		// n must not be a negative or zero (0).
-		document.getElementById("getMaxSkewResult").innerHTML = "Error! N should not be a negative or zero (0)";
+		document.getElementById("getSkewResult").innerHTML = "Error! N should not be a negative or zero (0)";
+		console.log("Error! N should not be a negative or zero (0)");
 	} else {
 		// Starting from index 1(0) up to index n, count the number Gs and Cs, and subtract cCount from gCount to get the skew.
 		for(var i=1; i<=n; i++){
@@ -152,7 +172,8 @@ function getMaxSkewN(){
 				maxSkew = gCount - cCount;
 			}
 		}
-		document.getElementById("getMaxSkewResult").innerHTML = "Max Skew: " + maxSkew;
+		document.getElementById("getMaxSkewResult").innerHTML = "Maximum Skew: " + maxSkew;
+		console.log("Maximum Skew: " + maxSkew);
 	}	
 }
 
@@ -173,10 +194,12 @@ function getMinSkewN(){
 
 	if(n>str.length){
 		// n must not be greater than str.length.
-		document.getElementById("getMinSkewResult").innerHTML = "Error! N is greater than length of string!";
+		document.getElementById("getSkewResult").innerHTML = "Error! N is greater than length of string!";
+		console.log("Error! N is greater than length of string!");
 	} else if(n<1){
 		// n must not be a negative or zero (0).
-		document.getElementById("getMinSkewResult").innerHTML = "Error! N should not be a negative or zero (0)";
+		document.getElementById("getSkewResult").innerHTML = "Error! N should not be a negative or zero (0)";
+		console.log("Error! N should not be a negative or zero (0)");
 	} else {
 		// Starting from index 1(0) up to index n, count the number Gs and Cs, and subtract cCount from gCount to get the skew.
 		for(var i=1; i<=n; i++){
@@ -189,10 +212,11 @@ function getMinSkewN(){
 				minSkew = gCount - cCount;
 			}
 			if((gCount-cCount) < minSkew){
-				// compare if current check is greater than previous maxSkew, update if so.
+				// compare if current check is less than previous minSkew, update if so.
 				minSkew = gCount - cCount;
 			}
 		}
 		document.getElementById("getMinSkewResult").innerHTML = "Minimum Skew: " + minSkew;
+		console.log("Minimum Skew: " + minSkew);
 	}	
 }
