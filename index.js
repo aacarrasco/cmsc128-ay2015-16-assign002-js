@@ -58,3 +58,27 @@ function countSubstrPattern(){
 	}
 	document.getElementById("substrPatternResult").innerHTML = "The number of occurrences of pattern, " + pattern + ", in original, " + original + " is " + substrPatternCount;
 }
+
+function isValidString(){
+	/*
+	Given an alphabet string where are all letters are assumed to be unique, 
+	this function returns true if the string is a valid string based on the 
+	letters of alphabet.
+	*/
+
+	// Get text field values and assign to str and alphabet.
+	var str = document.getElementById("validStr1").value;
+	var alphabet = document.getElementById("validStr2").value;
+	// Create negated character set regex with alphabet as the character set.
+	var regex = new RegExp("[^" + alphabet + "]", "g");
+	// Search str for a match against regex. Returns an array of matches.
+	var mismatch = str.match(regex);
+
+	if(mismatch == null){
+		// If mismatch is null, then the string is valid, since there are no matches for negated character set.
+		document.getElementById("validStringResult").innerHTML = "The string, " + str + ", is valid in alphabet, " + alphabet + ": " + true;
+	} else {
+		// Otherwise, the string is invalid.
+		document.getElementById("validStringResult").innerHTML = "The string, " + str + ", is not valid in alphabet, " + alphabet + ": " + false;
+	}
+}
