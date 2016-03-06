@@ -29,6 +29,32 @@ function getHammingDistance(){
 		// Display result.
 		document.getElementById("hammingDistanceResult").innerHTML = "The Hamming Distance of " + str1 + " and " + str2 + " is " + hammingDistance;
 	}
+}
 
+function countSubstrPattern(){
+	/*
+	Given a string original and pattern, we will count the number of occurrence 
+	of pattern in original.
+	*/
+	// Get text field values and assign to original and pattern.
+	var original = document.getElementById("substrPatt1").value;
+	var pattern = document.getElementById("substrPatt2").value;
+	var substrPatternCount = 0;
 
+	// For case insensitivity.
+	original = original.toUpperCase();
+	pattern = pattern.toUpperCase();
+
+	if(pattern.length > original.length){
+		// If pattern.length is greater than original.length, return 0.
+		substrPatternCount = 0;
+	} else {
+		// Starting from the 0th index, check if the pattern is equal to the substring of original from ith index up to pattern.length-characters. And increment substrPatternCount when equal.
+		for(var i=0; i<original.length; i++){
+			if(pattern == original.substr(i, pattern.length)){
+				substrPatternCount++;
+			}
+		}
+	}
+	document.getElementById("substrPatternResult").innerHTML = "The number of occurrences of pattern, " + pattern + ", in original, " + original + " is " + substrPatternCount;
 }
