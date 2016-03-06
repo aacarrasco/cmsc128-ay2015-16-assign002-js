@@ -98,14 +98,60 @@ function getSkew(){
 	var cCount = 0;
 	var skew = 0;
 
-	// Starting from index 1(0) up to index n, count the number Gs and Cs, and subtract cCount from gCount to get the skew.
-	for(var i=1; i<=n; i++){
-		if(str.charAt(i-1) == "G"){
-			gCount++;
-		} else if(str.charAt(i-1) == "C"){
-			cCount++;
+	if(n>str.length){
+		// n must not be greater than str.length.
+		document.getElementById("getSkewResult").innerHTML = "Error! N is greater than length of string!";
+	} else if(n<1){
+		// n must not be a negative or zero (0).
+		document.getElementById("getSkewResult").innerHTML = "Error! N should not be a negative or zero (0)";
+	} else {
+		// Starting from index 1(0) up to index n, count the number Gs and Cs, and subtract cCount from gCount to get the skew.
+		for(var i=1; i<=n; i++){
+			if(str.charAt(i-1) == "G"){
+				gCount++;
+			} else if(str.charAt(i-1) == "C"){
+				cCount++;
+			}
 		}
+		skew = gCount - cCount;
+		document.getElementById("getSkewResult").innerHTML = "Skew: " + skew;
 	}
-	skew = gCount - cCount;
-	document.getElementById("getSkewResult").innerHTML = "Skew: " + skew;
+}
+
+function getMaxSkewN(){
+	/*
+	Given a genome str of some length q (where q>0), it returns the maximum 
+	number of Gs minus the number of Cs in the first nucleotides (q>=n). The 
+	value can be zero, negative or positive. The first position is one (1) not
+	zero (0) as we typically associate with string implementations.
+	*/
+	// Get text field values and assign to str and n.
+	var str = document.getElementById("getMaxSkew1").value;
+	var n = document.getElementById("getMaxSkew2").value;
+	// Initialize gCount, cCount and skew to 0.
+	var gCount = 0;
+	var cCount = 0;
+	var maxSkew = 0;
+
+	if(n>str.length){
+		// n must not be greater than str.length.
+		document.getElementById("getMaxSkewResult").innerHTML = "Error! N is greater than length of string!";
+	} else if(n<1){
+		// n must not be a negative or zero (0).
+		document.getElementById("getMaxSkewResult").innerHTML = "Error! N should not be a negative or zero (0)";
+	} else {
+		// Starting from index 1(0) up to index n, count the number Gs and Cs, and subtract cCount from gCount to get the skew.
+		for(var i=1; i<=n; i++){
+			if(str.charAt(i-1) == "G"){
+				gCount++;
+			} else if(str.charAt(i-1) == "C"){
+				cCount++;
+			}
+			if((gCount-cCount) > maxSkew){
+				// compare if current check is greater than previous maxSkew, update if so.
+				maxSkew = gCount - cCount;
+			}
+		}
+		document.getElementById("getMaxSkewResult").innerHTML = "Max Skew: " + maxSkew;
+	}	
 }
