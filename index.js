@@ -18,10 +18,6 @@ function getHammingDistance(){
 	var str2 = document.getElementById("hammingDist2").value;
 	var hammingDistance = 0;
 
-	// For case insensitivity.
-	str1 = str1.toUpperCase();
-	str2 = str2.toUpperCase();
-
 	if(str1.length != str2.length){
 		// Both strings should have the same length.
 		document.getElementById("hammingDistanceResult").innerHTML = "Error! Strings are not equal!";
@@ -49,10 +45,6 @@ function countSubstrPattern(){
 	var original = document.getElementById("substrPatt1").value;
 	var pattern = document.getElementById("substrPatt2").value;
 	var substrPatternCount = 0;
-
-	// For case insensitivity.
-	original = original.toUpperCase();
-	pattern = pattern.toUpperCase();
 
 	if(pattern.length > original.length){
 		// If pattern.length is greater than original.length, return 0.
