@@ -116,9 +116,9 @@ function getSkew(){
 	} else {
 		// Starting from index 1(0) up to index n, count the number Gs and Cs, and subtract cCount from gCount to get the skew.
 		for(var i=1; i<=n; i++){
-			if(str.charAt(i-1) == "G"){
+			if(str.charAt(i-1) == "G" || str.charAt(i-1) == "g"){
 				gCount++;
-			} else if(str.charAt(i-1) == "C"){
+			} else if(str.charAt(i-1) == "C" || str.charAt(i-1) == "c"){
 				cCount++;
 			}
 		}
@@ -154,9 +154,9 @@ function getMaxSkewN(){
 	} else {
 		// Starting from index 1(0) up to index n, count the number Gs and Cs, and subtract cCount from gCount to get the skew.
 		for(var i=1; i<=n; i++){
-			if(str.charAt(i-1) == "G"){
+			if(str.charAt(i-1) == "G" || str.charAt(i-1) == "g"){
 				gCount++;
-			} else if(str.charAt(i-1) == "C"){
+			} else if(str.charAt(i-1) == "C" || str.charAt(i-1) == "c"){
 				cCount++;
 			}
 			if((gCount-cCount) > maxSkew){
@@ -195,9 +195,9 @@ function getMinSkewN(){
 	} else {
 		// Starting from index 1(0) up to index n, count the number Gs and Cs, and subtract cCount from gCount to get the skew.
 		for(var i=1; i<=n; i++){
-			if(str.charAt(i-1) == "G"){
+			if(str.charAt(i-1) == "G" || str.charAt(i-1) == "g"){
 				gCount++;
-			} else if(str.charAt(i-1) == "C"){
+			} else if(str.charAt(i-1) == "C" || str.charAt(i-1) == "c"){
 				cCount++;
 			}
 			if(i==1){
